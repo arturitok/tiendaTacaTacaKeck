@@ -1,0 +1,90 @@
+/* ------------------------ Responsive  */
+// Map con los breakpoints 
+$tamanios: (
+    chico: 320px,
+    mediano: 600px,
+    grande: 760px,
+    enorme: 990px
+);
+
+// -------------------------------------------------------------- Desafio SASS 2 
+// mixin responsivoA (tamañoDePantalla)
+//va a recibir como parámetro el tamaño de la pantalla para el responsive
+@mixin responsivoA($tamanio) {
+    @if map-has-key($tamanios, $tamanio) {  //chequeo si el tamaño se enceuntra en el mapa
+        $value: map-get($tamanios, $tamanio);  //recupero el valor de la clave en el mapa
+         
+        @media screen and (max-width: $value) {  //devuelvo el media query correspondiente a ese tamaño
+            @content;
+        }
+    }
+     
+    @warn "No tengo `#{$tamanio}` en el mapa de tamaños "; //else quiere decir que estoy escribiendo una resolución que no definí en el mapa, mando warning.
+}
+
+/*Desktop*/
+@include responsivoA(enorme) {
+    .pie a {
+          margin-right: 1em;
+          margin-left: 0em;
+      }
+    .carousel {
+      height: 560px;
+      padding-bottom: 10rem;
+    }
+  }
+  /*Tablet*/
+  @include responsivoA(grande) {
+    .pie { 
+        a {
+          margin-right: 0.5em;
+          margin-left: 0em;
+          i {
+            margin-right: 0.2em;
+          }
+          span {
+            display: none;
+        }
+        }
+    .carousel {
+      height: 480px;
+      ;
+    }
+  }
+}
+  /* Smartphone mediano                      */
+  @include responsivoA(mediano) {
+    .pie {
+            text-align: center;
+            a {
+                margin-right: 0.3em;
+                margin-left: 0em;
+                i {
+                    margin-right: 0;
+                }
+                span {
+                    display: none;
+                }
+            }
+    }        
+    .carousel {
+      height: 360px;
+    }
+  }
+
+  /* Smartphone chico                      */
+  @include responsivoA(chico) {
+    .pie {  
+        a {
+          margin-right: 10px;
+
+          span {
+            display: none;
+        }
+        }
+    }   
+    .carousel {
+      height: 240px;
+      overflow: hidden;
+    }
+  }

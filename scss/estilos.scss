@@ -1,0 +1,452 @@
+
+
+@import "colores";
+
+/* Reseteo general */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Elimino viñetas por defecto */
+  ul, ol {
+    list-style:none;
+  }
+  
+  /* Reseteo los links para que queden del mismo estilo que el texto general*/
+  a {
+    color:black;
+    text-decoration: none;
+  }
+
+
+@mixin textoAlPie {   
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+//Con este código genero tamaños de H para diferentes secciones. Aunque haya algunas que no se usen en los htmls del presente trabajo
+  $fuenteContextual: ( header: 0.8, main: 0.9, section: 0.7, article: 0.6, footer: 0.5); // Defino los contextos a los que le voy a aplicar los tamaños variables de fuentes, pares de valores contexto, proporcion
+  $pasoFuente: 0.333333; //el paso o multiplicador que voy a usar para aumentar el tamaño de la fuente
+  $amplificadorFuenteMobile: 1.1; //un multiplicador/divisor para mobile
+  $amplificadorFuenteEscritorio: 1.1; //un multiplicador/divisor para desktop
+  $enLaptop: 800px;
+  $margenCabecera: 0.67em 0;
+  @mixin mediaQuery($dispositivo) {
+      //media query para mobile-first
+      @media screen and (min-width: $dispositivo) {
+           @content;
+      }
+  }
+  //calcular el tamaño para el  encabezado- un media query para el breakpoint en 800px, se puede perfeccionar para agregarle mas breakpoints
+  @mixin tamanioCabecera($tamanio) {
+      $tamanioCalculadoContextual: $tamanio * $pasoFuente;
+      font-size: $tamanioCalculadoContextual * $amplificadorFuenteMobile + em;
+      @include mediaQuery($enLaptop) {
+          font-size: $tamanioCalculadoContextual * $amplificadorFuenteEscritorio + em;
+      }
+  }
+  // Acá le doy peso a la fuente y margen al encabezado - sin conetxto
+  @for $i from 1 through 6 {
+      h#{$i} {
+          font-weight: bold;
+          text-align: center;
+          margin: $margenCabecera;
+      }
+  }
+  //recorrer los contextos de la variable fuenteConextual y darle el tamaño proporcional para cada uno
+  @each $elemento, $valor in $fuenteContextual {
+      #{$elemento} {
+          //set header sizes 1-6
+          @for $i from 1 through 6 {
+              h#{$i} {
+                  $tamanioPorporcional: (7-$i);
+                  @include tamanioCabecera($tamanioPorporcional * $valor);
+              }
+          }
+      }
+  }
+  
+
+
+html,
+body {
+	height: 100%;
+	font-family: "Montserrat", sans-serif;
+	background: none;
+}
+body {
+    color: $grisClaro;
+    background-color:$fondoBlanco;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+ 
+  /* Configuración del Carousel - es común a todos los html */
+.carousel {
+    margin-bottom: 2rem;
+    background:$grisFondo;
+
+   .titulo {
+        margin-bottom: 1rem;
+        padding: 0.5em;
+        z-index: 10;
+       }
+    .carousel-item {
+        height: 60vh;
+        overflow: hidden;
+        .img-fluid {
+          max-width: 100%; 
+          height: 100%;
+         }
+        a {
+            display: block;
+            width:100%;
+            color: $amarillo;
+         }  
+    }   
+  }
+
+ #damasMain__carousel{
+   margin-bottom: 2em;
+ } 
+  /*------------------------------------------  Common Header  */
+
+.cabecera{
+    display: flex; 
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center;   
+    color:$grisTexto;
+    background-color: $fondoBlanco;
+
+    &__logo{
+      height: 7em;
+      img{
+          margin: 1em 0 1em 0;
+          width: 7em;
+        }
+        animation: tacaSalta 3s ease-in-out 0s infinite alternate-reverse forwards;  
+    }
+    &__banner{
+      margin: 1em 0 1em 0;
+      padding: 1em 0 1em 0;
+      background-color:$grisClaro;
+      color:$amarillo;
+      border-top: dotted;
+      border-bottom: dotted ;
+      border-color: $amarillo;
+      text-align: center;
+      width: 100%;
+      &--llamada{
+        color:$amarillo;
+        font-weight:bolder ;
+      }
+      &--texto{
+        color:$fondoBlanco;
+        font-size: medium;
+      }
+      
+    }
+  }
+
+/*  Estilos para el video */
+.spot{
+  margin-bottom: 3em;
+  background-color: $fondoBlanco;
+  &__titulo{
+    font-weight: bold;
+  }
+  &__video{
+    height:50vh;
+    
+    .video{   /*Ajusto los videos para que usen el 100% en cualquier dispositivo*/ 
+      width:100%  !important; 
+      height: auto !important;
+    }
+  }
+
+}
+ /*card de bootsrap con algunas customizaciones */
+.card{
+  text-align: center;
+  &__titulo{
+    font-weight: bold;
+    &--destacado{
+      background-color: $amarillo;
+      color:$fondoOscuro;
+      font-weight: bolder;
+    }
+
+  }
+  &__imagen{
+    background-color: $grisClaro;
+  }
+  :hover {
+    transform: scale(1.01,1.01);
+    transition: transform 0.5s 0s linear, all 0.5s 0s ease;
+  }
+}
+
+/*Card customizada para el html novedades*/ 
+.ficha {
+	background: #FFF;
+	border-radius: 15px;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin-bottom: 50px;
+  &__miniatura{
+    width: 650px;
+    height: 200px;
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: inline-block;
+  }
+  &__img {
+    width: 100%;
+  }
+  &__titulo {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+  &__enlace {
+    color: #000;
+  }
+  &__extracto {
+    line-height: 28px;
+    color: #6D6D6D;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Formulario de Contacto */
+
+.btn-primary{
+    background-color:$amarillo;
+    color: $grisClaro ;
+    font-weight: bold;
+    border:none;
+    :hover{
+        background-color:$amarillo;
+        color: $fondoBlanco;
+      }
+
+  }
+  
+  button,
+  input,
+  textarea {
+    padding: 1em;
+  }
+  
+  button {
+    background: $grisClaro;
+    width: 100%;
+    border: 0;
+    :hover, :focus {
+        background: $amarillo;
+        outline: 0;
+      }
+  }
+  
+
+ .ubicaciones__mapa{
+    text-align: center;
+    justify-content: center;
+    background-color: $grisClaro;
+  }
+
+.ubicaciones__mapa--destacado{
+  text-align: center;
+  justify-content: center;
+  background-color: $amarillo;
+}
+  
+
+/*Sección footer       */
+footer {
+	  background: $fondoOscuro;
+    color:  $amarillo;
+    width:100%;
+    height:12em;
+    padding:0 0; 
+    margin-top: 1rem;   
+    margin-bottom: 1rem;
+    display: flex;  
+    flex-direction: column;
+    border-color:$amarillo;
+    border-top:dotted;
+    text-align: center;
+    justify-content:space-around;
+    align-items: center;
+}   
+
+.pie {
+
+    a {
+        margin-right: 0.5em;
+        display: inline-block;
+        &:last-child {
+            margin-right: 0;
+        }
+        i {
+          font-size: 1.5rem;
+          color: $textoBlanco;
+          float: left;
+          margin-right: 1.2rem;
+          overflow: hidden;
+          -webkit-transition: all 5.3s;
+          transition: all 0.3s;
+        }
+        span {
+          display: inline-block;
+          font-size: 0.7rem;
+          font-weight: 400;
+          text-transform: uppercase;
+          color: $grisClaro;
+          padding-top: 0,5rem;
+          -webkit-transition: all 0.3s;
+          transition: all 0.3s;
+        }
+        &.instagram {
+            &:hover {
+              i {
+                color: $instagram;
+              }
+            }        
+          }
+          &.twitter {
+            &:hover {
+              i {
+                color: $twitter;
+              }
+            }        
+          }
+          &.facebook {
+            &:hover {
+              i {
+                color: $facebook;
+              }
+            }        
+          }
+          &.whatsapp {
+            &:hover {
+              i {
+                color: $whatsapp;
+              }
+            }        
+          }
+          &.email {
+            &:hover {
+              i {
+                color: $email;
+              }
+            }        
+          }
+          &.youtube {
+            &:hover {
+              i {
+                color: $youtube;
+              }
+            }        
+          }
+          &.contacto {
+            &:hover {
+              i {
+                color: $contacto;
+              }
+            }        
+          }
+          &:hover {
+            span {
+              color: $textoBlanco;
+            }
+          }
+    }
+ }
+
+
+
+.pie__logo{
+  height: 6em;
+  margin: 1em 0 1em 0;
+  img{
+    margin: 1em 0 1em 0;
+    width: 5em;
+    
+  } 
+  :hover {
+    transform: scale(1.2,1.2);
+    transform: rotateZ(1080deg);
+    transition: transform 0.5s 0s linear, all 0.5s 0s ease;
+  }
+} 
+
+
+/*Estilos para el html de nuestra historia */
+.contenedor {
+	max-width: 1000px;
+	width: 90%;
+	margin: 0 auto;
+  &__fichas {
+    margin: 70px 0;
+  }
+}
+
+
+/*Animación para el logo de cabecera */
+@keyframes tacaSalta {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  40% {
+    animation-timing-function: ease-in;
+    transform: translateY(-15px);
+  }
+
+  65% {
+    animation-timing-function: ease-in;
+    transform: translateY(-12px);
+  }
+
+  82% {
+    animation-timing-function: ease-in;
+    transform: translateY(-6px);
+  }
+
+  93% {
+    animation-timing-function: ease-in;
+    transform: translateY(-4px);
+  }
+
+  25%,
+  55%,
+  75%,
+  87% {
+    animation-timing-function: ease-out;
+    transform: translateY(0px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@import "responsivo"
