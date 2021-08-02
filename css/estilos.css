@@ -236,7 +236,7 @@ body {
   margin: 0 auto;
   max-width: 100%; }
 
-/* Configuración del Carousel - es común a todos los html */
+/* Configuración del Carousel - este carousel es común a todos los html */
 .carousel {
   margin-bottom: 2rem;
   background: #444; }
@@ -258,7 +258,7 @@ body {
 #damasMain__carousel {
   margin-bottom: 2em; }
 
-/*------------------------------------------  Common Header  */
+/*------------------------------------------  Header  */
 .cabecera {
   display: flex;
   flex-direction: column;
@@ -288,6 +288,73 @@ body {
     .cabecera__banner--texto {
       color: #fff;
       font-size: medium; }
+
+/*------------------------------------------  Footer  */
+footer {
+  background: #262626;
+  color: #ECE950;
+  width: 100%;
+  height: 12em;
+  padding: 0 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-color: #ECE950;
+  border-top: dotted;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center; }
+
+.pie a {
+  margin-right: 0.5em;
+  display: inline-block; }
+  .pie a:last-child {
+    margin-right: 0; }
+  .pie a i {
+    font-size: 1.5rem;
+    color: #d7d7d7;
+    float: left;
+    margin-right: 1.2rem;
+    overflow: hidden;
+    -webkit-transition: all 5.3s;
+    transition: all 0.3s; }
+  .pie a span {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #969da5;
+    padding-top: 0,5rem;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; }
+  .pie a.instagram:hover i {
+    color: #2F5D84; }
+  .pie a.twitter:hover i {
+    color: #5abed6; }
+  .pie a.facebook:hover i {
+    color: #39599F; }
+  .pie a.whatsapp:hover i {
+    color: #41bd36; }
+  .pie a.email:hover i {
+    color: #cc34d1; }
+  .pie a.youtube:hover i {
+    color: #D12227; }
+  .pie a.contacto:hover i {
+    color: #ECE950; }
+  .pie a:hover span {
+    color: #d7d7d7; }
+
+.pie__logo {
+  height: 6em;
+  margin: 1em 0 1em 0; }
+  .pie__logo img {
+    margin: 1em 0 1em 0;
+    width: 5em; }
+  .pie__logo :hover {
+    transform: scale(1.2, 1.2);
+    transform: rotateZ(1080deg);
+    transition: transform 0.5s 0s linear, all 0.5s 0s ease; }
 
 /*  Estilos para el video */
 .spot {
@@ -378,73 +445,6 @@ button {
   text-align: center;
   justify-content: center;
   background-color: #ECE950; }
-
-/*Sección footer       */
-footer {
-  background: #262626;
-  color: #ECE950;
-  width: 100%;
-  height: 12em;
-  padding: 0 0;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  border-color: #ECE950;
-  border-top: dotted;
-  text-align: center;
-  justify-content: space-around;
-  align-items: center; }
-
-.pie a {
-  margin-right: 0.5em;
-  display: inline-block; }
-  .pie a:last-child {
-    margin-right: 0; }
-  .pie a i {
-    font-size: 1.5rem;
-    color: #d7d7d7;
-    float: left;
-    margin-right: 1.2rem;
-    overflow: hidden;
-    -webkit-transition: all 5.3s;
-    transition: all 0.3s; }
-  .pie a span {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    color: #969da5;
-    padding-top: 0,5rem;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s; }
-  .pie a.instagram:hover i {
-    color: #2F5D84; }
-  .pie a.twitter:hover i {
-    color: #5abed6; }
-  .pie a.facebook:hover i {
-    color: #39599F; }
-  .pie a.whatsapp:hover i {
-    color: #41bd36; }
-  .pie a.email:hover i {
-    color: #cc34d1; }
-  .pie a.youtube:hover i {
-    color: #D12227; }
-  .pie a.contacto:hover i {
-    color: #ECE950; }
-  .pie a:hover span {
-    color: #d7d7d7; }
-
-.pie__logo {
-  height: 6em;
-  margin: 1em 0 1em 0; }
-  .pie__logo img {
-    margin: 1em 0 1em 0;
-    width: 5em; }
-  .pie__logo :hover {
-    transform: scale(1.2, 1.2);
-    transform: rotateZ(1080deg);
-    transition: transform 0.5s 0s linear, all 0.5s 0s ease; }
 
 /*Estilos para el html de nuestra historia */
 .contenedor {

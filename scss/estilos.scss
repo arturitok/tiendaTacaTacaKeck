@@ -85,7 +85,7 @@ body {
     max-width: 100%;
   }
  
-  /* Configuración del Carousel - es común a todos los html */
+  /* Configuración del Carousel - este carousel es común a todos los html */
 .carousel {
     margin-bottom: 2rem;
     background:$grisFondo;
@@ -113,7 +113,8 @@ body {
  #damasMain__carousel{
    margin-bottom: 2em;
  } 
-  /*------------------------------------------  Common Header  */
+
+/*------------------------------------------  Header  */
 
 .cabecera{
     display: flex; 
@@ -152,6 +153,127 @@ body {
       
     }
   }
+
+/*------------------------------------------  Footer  */ 
+
+footer {
+  background: $fondoOscuro;
+  color:  $amarillo;
+  width:100%;
+  height:12em;
+  padding:0 0; 
+  margin-top: 1rem;   
+  margin-bottom: 1rem;
+  display: flex;  
+  flex-direction: column;
+  border-color:$amarillo;
+  border-top:dotted;
+  text-align: center;
+  justify-content:space-around;
+  align-items: center;
+}   
+
+.pie {
+
+  a {
+      margin-right: 0.5em;
+      display: inline-block;
+      &:last-child {
+          margin-right: 0;
+      }
+      i {
+        font-size: 1.5rem;
+        color: $textoBlanco;
+        float: left;
+        margin-right: 1.2rem;
+        overflow: hidden;
+        -webkit-transition: all 5.3s;
+        transition: all 0.3s;
+      }
+      span {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: $grisClaro;
+        padding-top: 0,5rem;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+      &.instagram {
+          &:hover {
+            i {
+              color: $instagram;
+            }
+          }        
+        }
+        &.twitter {
+          &:hover {
+            i {
+              color: $twitter;
+            }
+          }        
+        }
+        &.facebook {
+          &:hover {
+            i {
+              color: $facebook;
+            }
+          }        
+        }
+        &.whatsapp {
+          &:hover {
+            i {
+              color: $whatsapp;
+            }
+          }        
+        }
+        &.email {
+          &:hover {
+            i {
+              color: $email;
+            }
+          }        
+        }
+        &.youtube {
+          &:hover {
+            i {
+              color: $youtube;
+            }
+          }        
+        }
+        &.contacto {
+          &:hover {
+            i {
+              color: $contacto;
+            }
+          }        
+        }
+        &:hover {
+          span {
+            color: $textoBlanco;
+          }
+        }
+  }
+}
+
+
+
+.pie__logo{
+  height: 6em;
+  margin: 1em 0 1em 0;
+  img{
+    margin: 1em 0 1em 0;
+    width: 5em;
+  } 
+  :hover {
+    transform: scale(1.2,1.2);
+    transform: rotateZ(1080deg);
+    transition: transform 0.5s 0s linear, all 0.5s 0s ease;
+  }
+} 
+
+
 
 /*  Estilos para el video */
 .spot{
@@ -270,127 +392,6 @@ body {
   background-color: $amarillo;
 }
   
-
-/*Sección footer       */
-footer {
-	  background: $fondoOscuro;
-    color:  $amarillo;
-    width:100%;
-    height:12em;
-    padding:0 0; 
-    margin-top: 1rem;   
-    margin-bottom: 1rem;
-    display: flex;  
-    flex-direction: column;
-    border-color:$amarillo;
-    border-top:dotted;
-    text-align: center;
-    justify-content:space-around;
-    align-items: center;
-}   
-
-.pie {
-
-    a {
-        margin-right: 0.5em;
-        display: inline-block;
-        &:last-child {
-            margin-right: 0;
-        }
-        i {
-          font-size: 1.5rem;
-          color: $textoBlanco;
-          float: left;
-          margin-right: 1.2rem;
-          overflow: hidden;
-          -webkit-transition: all 5.3s;
-          transition: all 0.3s;
-        }
-        span {
-          display: inline-block;
-          font-size: 0.7rem;
-          font-weight: 400;
-          text-transform: uppercase;
-          color: $grisClaro;
-          padding-top: 0,5rem;
-          -webkit-transition: all 0.3s;
-          transition: all 0.3s;
-        }
-        &.instagram {
-            &:hover {
-              i {
-                color: $instagram;
-              }
-            }        
-          }
-          &.twitter {
-            &:hover {
-              i {
-                color: $twitter;
-              }
-            }        
-          }
-          &.facebook {
-            &:hover {
-              i {
-                color: $facebook;
-              }
-            }        
-          }
-          &.whatsapp {
-            &:hover {
-              i {
-                color: $whatsapp;
-              }
-            }        
-          }
-          &.email {
-            &:hover {
-              i {
-                color: $email;
-              }
-            }        
-          }
-          &.youtube {
-            &:hover {
-              i {
-                color: $youtube;
-              }
-            }        
-          }
-          &.contacto {
-            &:hover {
-              i {
-                color: $contacto;
-              }
-            }        
-          }
-          &:hover {
-            span {
-              color: $textoBlanco;
-            }
-          }
-    }
- }
-
-
-
-.pie__logo{
-  height: 6em;
-  margin: 1em 0 1em 0;
-  img{
-    margin: 1em 0 1em 0;
-    width: 5em;
-    
-  } 
-  :hover {
-    transform: scale(1.2,1.2);
-    transform: rotateZ(1080deg);
-    transition: transform 0.5s 0s linear, all 0.5s 0s ease;
-  }
-} 
-
-
 /*Estilos para el html de nuestra historia */
 .contenedor {
 	max-width: 1000px;

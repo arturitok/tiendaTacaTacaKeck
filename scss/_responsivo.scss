@@ -18,8 +18,7 @@ $tamanios: (
             @content;
         }
     }
-     
-    @warn "No tengo `#{$tamanio}` en el mapa de tamaños "; //else quiere decir que estoy escribiendo una resolución que no definí en el mapa, mando warning.
+  
 }
 
 /*Desktop*/
