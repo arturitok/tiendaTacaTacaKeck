@@ -1,7 +1,7 @@
 {
   "name": "tiendatacatacakeck",
   "version": "1.0.0",
-  "description": "Proyecto Final-Tienda Taca Taca -CoderHouse",
+  "description": "Proyecto Final-Tienda Taca Taca - CoderHouse",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
